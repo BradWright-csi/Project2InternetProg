@@ -55,7 +55,7 @@ function navBar($title, $img)
                <div class="menu">
                   <ul>
                      <li><a href="./index.php">About</a></li>
-                     <li><a href="./gallery.html">Gallery</a></li>
+                     <li><a href="./gallery.php">Gallery</a></li>
                      <li><a href="#">Quote</a></li>
                      <li><a href="#">Order</a></li>
                      <li><a href="#">Design</a></li>
