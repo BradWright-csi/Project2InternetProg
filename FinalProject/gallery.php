@@ -17,16 +17,21 @@
     navBar($pageTitle, $logo);
 
  ?>
-	
+	<div class = "row">
+	<div class = "col-5">
 	<div id = "image">
-		Hover over an image below to display here.
+		Hover over image to display!
 	</div>
-	
+</div>
+
+<div class="col-7">	
 	<img class = "preview" alt = "" src = "./img/glass1.jpg" onmouseover = "upDate(this)" onmouseout = "unDo()">
 	<img class = "preview" alt = "" src = "./img/glass2.jpg" onmouseover = "upDate(this)" onmouseout = "unDo()">
 	<img class = "preview" src = "./img/glass3.jpg" alt = "" onmouseover = "upDate(this)" onmouseout = "unDo()">
 	<img class = "preview" src = "./img/glass4.jpg" alt = "" onmouseover = "upDate(this)" onmouseout = "unDo()">
 	<img class = "preview" src = "./img/glass5.jpg" alt = "" onmouseover = "upDate(this)" onmouseout = "unDo()">
+</div>
+</div>
 </div>
 </body>
 </html>
