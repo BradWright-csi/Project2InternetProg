@@ -34,9 +34,26 @@ session_start();
         $logo = "./img/Picture1.png";
         navBar($pageTitle, $logo);
 
-        ?>
-        <h2>Quote has been submitted!</h2>
+        require_once 'connection.php';
+        $conn = connect_db();
+    
+        $type = $_POST["product"];
+        $phone = $_POST["phone"];
+        $desc = $_POST["desc"];
+        $pic = $_POST["picture"];
+        $user = $_SESSION['name'];
+        $custID = $conn->query("SELECT userID FROM users WHERE email = \"$user\"");
 
+        $query = "INSERT INTO quotes (quoteID, `type`, decription, customerID) VALUES (NULL, \"$type\", \"$desc\", \"$custID\")";
+        $result = $conn->query($query);
+
+        if (!$result) {
+            die("Query Error on quote submission!");
+          } 
+        
+        echo "<h2>Quote has been submitted!</h2>";
+        footer();
+        ?>
 
         <!-- Optional JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->

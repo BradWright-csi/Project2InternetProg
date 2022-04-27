@@ -35,6 +35,32 @@
          background-color: #111;
       }
 
+      p a {
+         display: block;
+         color: white;
+         text-align: center;
+         padding: 14px 16px;
+         text-decoration: none;
+      }
+
+      p a:hover:not(.active) {
+         background-color: #111;
+      }
+
+      #auth {
+         display: block;
+         color: white;
+         text-align: center;
+         padding: 14px 16px;
+         text-decoration: none;
+      }
+
+       footer {
+         margin: 0;
+         padding: 0;
+         background-color: #333;
+      }
+
       .active {
          background-color: #04AA6D;
       }
@@ -89,9 +115,27 @@
       </div>
    EOT;
    }
+   function footer(){
+      echo<<<EOT
+         
+            <footer>
+            <div class="row">
+               <div class="column" id="auth">
+                  <p>Authors: Group 5 CSCI3610</p>
+               </div>
+               <div class="column">
+                  <p><a href="./adminLogin.php">Admin</a></p>
+               </div>
+               </div>
+            </footer>
+         
+      EOT;
+   }
 
    ?>
+
 </body>
+
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -99,5 +143,4 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 </body>
-
 </html>

@@ -34,7 +34,7 @@ session_start();
         $logo = "./img/Picture1.png";
         navBar($pageTitle, $logo);
 
-        ?>
+        echo<<<EOT
         <p>* must be entered</p>
         <label for="worktype">*Type of Service:</label><br>
         <select name="product" id="product" form="services">
@@ -44,7 +44,7 @@ session_start();
         </select>
 
         <form action="./quoteHandler.php" method="POST" id="services" name="services">
-            <label for="email">*Phone Number:</label><br>
+            <label for="phone">*Phone Number:</label><br>
             <input type="tel" id="phone" name="phone"><br>
             <label for="description">Description of work you would like preformed:</label><br>
             <textarea id="desc" name="desc" rows="4" cols="50"></textarea><br>
@@ -61,6 +61,10 @@ session_start();
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
     </div>
+    EOT;
+        
+        footer();
+        ?>
 </body>
 
 </html>

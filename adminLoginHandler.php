@@ -58,6 +58,7 @@ session_start();
 
         $conn->close();
 
+        footer();
         ?>
 
         <!-- Optional JavaScript -->

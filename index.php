@@ -33,12 +33,14 @@ session_start();
     $logo = "./img/Picture1.png";
     navBar($pageTitle, $logo);
 
-    ?>
+    echo<<<EOT
     <h1>Preston Custom Designes</h1>
     <p>We are a family buisness run by a father and son. We specialize in coustom wood and glass etching.</p>
     <img src="./img/hold.jpg" alt="Family" style="width:700px;height:400px;">
   </div>
-
+  EOT;
+    footer();
+  ?>
 </body>
 
 </html>

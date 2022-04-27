@@ -23,7 +23,7 @@ session_start();
 		$logo = "./img/Picture1.png";
 		navBar($pageTitle, $logo);
 
-		?>
+		echo<<< EOT
 
 		<div id="image">
 			Hover over an image below to display here.
@@ -35,6 +35,9 @@ session_start();
 		<img class="preview" src="./img/glass4.jpg" alt="" onmouseover="upDate(this)" onmouseout="unDo()">
 		<img class="preview" src="./img/glass5.jpg" alt="" onmouseover="upDate(this)" onmouseout="unDo()">
 	</div>
+	EOT;
+	footer();
+	?>
 </body>
 
 </html>
