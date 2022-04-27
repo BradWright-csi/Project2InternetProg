@@ -16,21 +16,29 @@ session_start();
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <link rel="icon" type="image/png" href="./img/weblogo.png">
     <title>Admin Login | Preston Custom Designes</title>
+
+    <style type="text/css">
+        hr.style1 {
+            background-color: green;
+            color: seagreen;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <?php
-        require_once 'pageOption.php';
 
-        $pageTitle = "ADMIN LOGIN";
-        $logo = "./img/Picture1.png";
+    <?php
+    require_once 'pageOption.php';
 
-        navBar($pageTitle, $logo);
-        ?>
+    $pageTitle = "ADMIN LOGIN";
+    $logo = "./img/Picture1.png";
 
+    navBar($pageTitle, $logo);
+    ?>
+    <hr class="style1">
+    <div class=container>
 
         <h2>Admin Login</h2>
 

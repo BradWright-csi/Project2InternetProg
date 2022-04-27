@@ -9,6 +9,7 @@
    <!-- Bootstrap CSS -->
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
+
    <title></title>
    <style>
       ul {
@@ -26,6 +27,7 @@
       li a {
          display: block;
          color: white;
+         font-size: 25px;
          text-align: center;
          padding: 14px 16px;
          text-decoration: none;
@@ -52,10 +54,9 @@
                <div class="menu-icon">
                   <i class="fa fa-bars fa-2x"></i>
                </div>
-               <img src="$img"  alt="Logo" style="width:700px;height:400px;" >
-               <h2 class="mt-2">$title</h2>
                <div class="menu">
                   <ul>
+                     <li><img src="./img/plogo.png"  alt="Logo" style="width=50%; height=50%;"></li>
                      <li><a href="./index.php">Home</a></li>
                      <li><a href="./gallery.php">Gallery</a></li>         
    EOT;
@@ -64,6 +65,8 @@
          echo '<li><a href="./quotesNoUser.php">Quote</a></li>';
       } else {
          echo '<li><a href="./quotesUser.php">Quote</a></li>';
+         echo '<li><a href="./myQuotes.php">My Quotes</a></li>';
+         echo '<li><a href="./myOrders.php">My Orders</a></li>';
          $userName = $_SESSION['name'];
       }
 

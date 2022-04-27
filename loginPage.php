@@ -12,25 +12,34 @@ session_start();
 
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+  <link rel="icon" type="image/png" href="./img/weblogo.png">
   <title>Login Page | Preston Custom Designes</title>
+
+  <style type="text/css">
+    hr.style1 {
+      background-color: green;
+      color: seagreen;
+    }
+  </style>
 </head>
 
 <body>
 
 
+
+
+  <?php
+
+  require_once 'pageOption.php';
+
+  $pageTitle = "Login";
+  $logo = "./img/Picture1.png";
+  navBar($pageTitle, $logo);
+
+  ?>
+  <hr class="style1">
+  <h2 style="text-align: center;">Login</h2>
   <div class=container>
-
-    <?php
-
-    require_once 'pageOption.php';
-
-    $pageTitle = "Login";
-    $logo = "./img/Picture1.png";
-    navBar($pageTitle, $logo);
-
-    ?>
-
     <form action="./loginHandle.php" method="POST">
       <label for="email">Email:</label><br>
       <input type="text" id="email" name="email"><br>

@@ -16,20 +16,29 @@ if (!isset($_SESSION["admin"]))
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./img/weblogo.png">
     <title>Status Manager | Preston Custom Designes</title>
+
+    <style type="text/css">
+        hr.style1 {
+            background-color: green;
+            color: seagreen;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <?php
 
-        require_once 'pageOption.php';
+    <?php
 
-        $pageTitle = "Status Manager";
-        $logo = "./img/Picture1.png";
-        navBar($pageTitle, $logo);
+    require_once 'pageOption.php';
 
-        ?>
+    $pageTitle = "Status Manager";
+    $logo = "./img/Picture1.png";
+    navBar($pageTitle, $logo);
+
+    ?>
+    <div class=container>
         <div class="row mt-4">
             <div class="col-sm-2">
                 <h4>Example:<br></h4> <img src="./img/glass1.jpg" class="rounded" alt="glass1.jpg" width="60%" height="70%">
@@ -48,7 +57,6 @@ if (!isset($_SESSION["admin"]))
                 <select name="product" id="product" form="services">
                     <option value=""></option>
                     <option value="started">Started</option>
-                    <option value="started">Halfway</option>
                     <option value="finished">Finished</option>
                 </select>
             </div>
@@ -56,7 +64,7 @@ if (!isset($_SESSION["admin"]))
                 <h3><a href="#">Update</a></h3>
             </div>
         </div>
-
+        <hr class="style1">
         <div class="row mt-4">
             <div class="col-sm-2">
                 <h4>Example:<br></h4> <img src="./img/glass4.jpg" class="rounded" alt="glass1.jpg" width="60%" height="70%">
@@ -75,7 +83,6 @@ if (!isset($_SESSION["admin"]))
                 <select name="product" id="product" form="services">
                     <option value=""></option>
                     <option value="started">Started</option>
-                    <option value="started">Halfway</option>
                     <option value="finished">Finished</option>
                 </select>
             </div>
@@ -83,6 +90,7 @@ if (!isset($_SESSION["admin"]))
                 <h3><a href="#">Update</a></h3>
             </div>
         </div>
+        <hr class="style1">
     </div>
 </body>
 
