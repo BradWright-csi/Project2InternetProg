@@ -54,7 +54,17 @@ CREATE TABLE `orders` (
   `description` varchar(100) NOT NULL,
   `status` enum('active','completed','canceled') NOT NULL,
   `customerID` int(11) NOT NULL
+  `quantity` int(11) NOT NULL,
+  `image` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`quoteID`, `type`, `price`, `description`,`status`, `customerID`, `quantity`, `image`) VALUES
+(1, 'glass', NULL, 'I want a shot glass with a georgia bulldogs logo with the teams name surrounding it', 'active', 1, 2, './img/glass1.jpg'),
+(2, 'glass', NULL, 'I want a shot glass with a georgia bulldogs helmet with \"GO DAWGS\" on top', 'active', 2, 1, './img/glass4.jpg');
 
 -- --------------------------------------------------------
 
@@ -68,7 +78,17 @@ CREATE TABLE `quotes` (
   `price` double DEFAULT NULL,
   `description` varchar(100) NOT NULL,
   `customerID` int(11) NOT NULL
+  `quantity` int(11) NOT NULL,
+  `image` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `quotes`
+--
+
+INSERT INTO `quotes` (`quoteID`, `type`, `price`, `description`, `customerID`, `quantity`, `image`) VALUES
+(1, 'glass', NULL, 'I want a shot glass with a georgia bulldogs logo with the teams name surrounding it', 1, 2, './img/glass1.jpg'),
+(2, 'glass', NULL, 'I want a shot glass with a georgia bulldogs helmet with \"GO DAWGS\" on top', 2, 1, './img/glass4.jpg');
 
 -- --------------------------------------------------------
 

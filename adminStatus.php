@@ -29,19 +29,35 @@ if (!isset($_SESSION["admin"]))
         $logo = "./img/Picture1.png";
         navBar($pageTitle, $logo);
 
-        ?>
+        require_once 'connection.php';
+        $conn=connect_db();
+
+        $query="SELECT * FROM quotes";
+        $result=$conn->query($query);
+        if(!$result) 
+            die("Query error!".$query);
+
+        $rows=$result->num_rows;
+
+        for ($i=0; $i<$rows; $i++) {
+            $row=$result->fetch_array(MYSQLI_ASSOC);
+            $type=$row["type"];
+            $price=$row["price"];
+            $desc=$row["description"];
+            $status=$row["status"];
+        
         <div class="row mt-4">
             <div class="col-sm-2">
                 <h4>Example:<br></h4> <img src="./img/glass1.jpg" class="rounded" alt="glass1.jpg" width="60%" height="70%">
             </div>
             <div class="col-md-3">
-                <h3>Georgia Shot Glass - Glass Ethcing</h3>
+                <h3>$type</h3>
             </div>
             <div class="col-sm-2">
                 <h3>Quanity: 2</h3>
             </div>
             <div class="col-sm-2">
-                <label for="worktype">Status: Halfway</label>
+                <label for="worktype">Status: $status</label>
             </div>
             <div class="col-sm-2">
                 <label for="worktype">Current Status: </label>
@@ -56,8 +72,9 @@ if (!isset($_SESSION["admin"]))
                 <h3><a href="#">Update</a></h3>
             </div>
         </div>
-
-        <div class="row mt-4">
+        }
+        ?>
+        <!-- <div class="row mt-4">
             <div class="col-sm-2">
                 <h4>Example:<br></h4> <img src="./img/glass4.jpg" class="rounded" alt="glass1.jpg" width="60%" height="70%">
             </div>
@@ -82,7 +99,7 @@ if (!isset($_SESSION["admin"]))
             <div class="col-sm-2">
                 <h3><a href="#">Update</a></h3>
             </div>
-        </div>
+        </div> -->
     </div>
 </body>
 

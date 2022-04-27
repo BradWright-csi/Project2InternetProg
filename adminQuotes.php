@@ -1,5 +1,5 @@
 <!-- 
-  Allows admin, only, to view quotes and give estimated pricing from user's quotes
+    Allows admin to update status of products
 -->
 
 <?php
@@ -16,7 +16,7 @@ if (!isset($_SESSION["admin"]))
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quotes Manager | Preston Custom Designes</title>
+    <title>Status Manager | Preston Custom Designes</title>
 </head>
 
 <body>
@@ -25,46 +25,61 @@ if (!isset($_SESSION["admin"]))
 
         require_once 'pageOption.php';
 
-        $pageTitle = "Quote Manager";
+        $pageTitle = "Status Manager";
         $logo = "./img/Picture1.png";
         navBar($pageTitle, $logo);
 
-        ?>
-        <div class="row mt-4">
-            <div class="col-sm-2">
-                <h4>Example:<br></h4> <img src="./img/glass1.jpg" class="rounded" alt="glass1.jpg" width="60%" height="70%">
+        require_once 'connection.php';
+        $conn=connect_db();
+
+        $query="SELECT * FROM orders";
+        $result=$conn->query($query);
+        if(!$result) 
+            die("Query error!".$query);
+
+        $rows=$result->num_rows;
+
+        for ($i=0; $i<$rows; $i++) {
+            $row=$result->fetch_array(MYSQLI_ASSOC);
+            $type=$row["type"];
+            $price=$row["price"];
+            $desc=$row["description"];
+            $status=$row["status"];
+            $img=$row["image"];
+
+            echo<<< EOT    
+            <div class="row mt-4">
+               <div class="col-sm-2">
+                <h4>Example:<br></h4> <img src="$img" class="rounded" alt="glass1.jpg" width="60%" height="70%">
             </div>
             <div class="col-md-3">
-                <h3>Georgia Shot Glass - Glass Ethcing</h3>
+                <h3>$type</h3>
             </div>
             <div class="col-sm-2">
                 <h3>Quanity: 2</h3>
             </div>
             <div class="col-sm-2">
-                <h3><a href="#">View</a></h3>
+                <label for="worktype">Status: $status</label>
             </div>
-            <div class="col-lg-auto">
-                <h3>I want a shot glass with a georgia bulldogs logo with the teams name surrounding it</h3>
+            <div class="col-sm-2">
+                <label for="worktype">Current Status: </label>
+                <select name="product" id="product" form="services">
+                    <option value=""></option>
+                    <option value="started">Started</option>
+                    <option value="started">Halfway</option>
+                    <option value="finished">Finished</option>
+                </select>
+            </div>
+            <div class="col-sm-2">
+                <h3><a href="#">Update</a></h3>
             </div>
         </div>
-
-        <div class="row mt-4">
-            <div class="col-sm-2">
-                <h4>Example:<br></h4> <img src="./img/glass4.jpg" class="rounded" alt="glass1.jpg" width="60%" height="70%">
-            </div>
-            <div class="col-md-3">
-                <h3>Georgia Helmet Shot Glass - Glass Ethcing</h3>
-            </div>
-            <div class="col-sm-2">
-                <h3>Quanity: 1</h3>
-            </div>
-            <div class="col-sm-2">
-                <h3><a href="#">View</a></h3>
-            </div>
-            <div class="col-lg-auto">
-                <h3>I want a shot glass with a georgia bulldogs helmet with "GO DAWGS" on top</h3>
-            </div>
-        </div>
+        EOT;
+        }
+        footer();
+        $conn->close();
+        ?>
+ 
     </div>
 </body>
 
