@@ -13,6 +13,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./img/weblogo.png">
     <title>Quote Complete | Preston Custom Designes</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -34,8 +35,30 @@ session_start();
         $logo = "./img/Picture1.png";
         navBar($pageTitle, $logo);
 
+        require_once 'connection.php';
+        $conn = connect_db();
+
+        $type = $_POST["product"];
+        $desc = $_POST["desc"];
+        $quantity = $_POST["quant"];
+        $email = $_SESSION['name'];
+        echo "console.log(\"$type\")";
+
+        $custID = $conn->query("SELECT userID FROM users WHERE email = \"$email\"");
+        $row = $custID->fetch_array(MYSQLI_ASSOC);
+
+        $custID = $row["userID"];
+        echo "console.log(\"$custID\")";
+
+        $query = "INSERT INTO `quotes` (`quoteID`, `type`, `description`, `customerID`, `quantity`) VALUES (NULL, '$type', '$desc', '$custID', '$quantity');";
+        $result = $conn->query($query);
+
+        if (!$result) {
+            die("Query Error on quote submission!");
+        }
+
+        echo "<h2>Quote has been submitted!</h2>";
         ?>
-        <h2>Quote has been submitted!</h2>
 
 
         <!-- Optional JavaScript -->

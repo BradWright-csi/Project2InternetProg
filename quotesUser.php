@@ -4,6 +4,8 @@
 
 <?php
 session_start();
+if (!isset($_SESSION["name"]))
+    die("You have to login to view this page");
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +15,7 @@ session_start();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="./img/weblogo.png">
     <title>Quotes | Preston Custom Designes</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -21,20 +24,28 @@ session_start();
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+    <style type="text/css">
+        hr.style1 {
+            background-color: green;
+            color: seagreen;
+        }
+    </style>
 </head>
 
 <body>
 
+    <?php
+
+    require_once 'pageOption.php';
+
+    $pageTitle = "About";
+    $logo = "./img/Picture1.png";
+    navBar($pageTitle, $logo);
+
+    ?>
+    <hr class="style1">
+    <h3 style="text-align: center;">Ask For A Quote!</h3>
     <div class=container>
-        <?php
-
-        require_once 'pageOption.php';
-
-        $pageTitle = "About";
-        $logo = "./img/Picture1.png";
-        navBar($pageTitle, $logo);
-
-        ?>
         <p>* must be entered</p>
         <label for="worktype">*Type of Service:</label><br>
         <select name="product" id="product" form="services">
@@ -44,14 +55,14 @@ session_start();
         </select>
 
         <form action="./quoteHandler.php" method="POST" id="services" name="services">
-            <label for="email">*Phone Number:</label><br>
-            <input type="tel" id="phone" name="phone"><br>
-            <label for="description">Description of work you would like preformed:</label><br>
+            <br><label for="desc">*Description of work you would like preformed:</label><br>
             <textarea id="desc" name="desc" rows="4" cols="50"></textarea><br>
-            <label for="picture">Select a picture for refrence:</label>
-            <input type="file" id="picture" name="picture"><br>
+            <label for="quant">*Quanity:</label><br>
+            <input type="number" id="quant" name="quant"><br>
+            <br>
             <div id="msg"></div>
             <input type="submit" value="Submit">
+            <p><i>*Quotes may take up to 1-2 buisness days*</i></p>
         </form>
 
         <!-- Optional JavaScript -->

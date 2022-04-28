@@ -20,21 +20,29 @@ session_start();
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="./img/weblogo.png">
 
+    <style type="text/css">
+        hr.style1 {
+            background-color: green;
+            color: seagreen;
+        }
+    </style>
 </head>
 
 <body>
 
+    <?php
+
+    require_once 'pageOption.php';
+
+    $pageTitle = "About";
+    $logo = "./img/Picture1.png";
+    navBar($pageTitle, $logo);
+
+    ?>
+    <hr class="style1">
     <div class=container>
-        <?php
-
-        require_once 'pageOption.php';
-
-        $pageTitle = "About";
-        $logo = "./img/Picture1.png";
-        navBar($pageTitle, $logo);
-
-        ?>
         <h2>Must Be Signed Into An Account To Submit A Quote</h2>
         <a href="./loginPage.php" class="btn btn-primary">Login</a>
         <a href="./signUp.php" class="btn btn-primary">Sign Up</a>

@@ -8,26 +8,37 @@ session_start();
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
+	<link rel="icon" type="image/png" href="./img/weblogo.png">
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 	<title>Sign Up! | Preston Custom Designes</title>
+
+	<style type="text/css">
+		hr.style1 {
+			background-color: green;
+			color: seagreen;
+		}
+	</style>
 </head>
 
 <body>
+
+	<?php
+
+
+	require_once 'pageOption.php';
+
+	$pageTitle = "Sign Up";
+	$logo = "./img/Picture1.png";
+	navBar($pageTitle, $logo);
+
+	?>
+
+	<hr class="style1">
+	<h2 style="text-align: center;">Sign Up</h2>
+
 	<div class=container>
-		<?php
-
-
-		require_once 'pageOption.php';
-
-		$pageTitle = "Sign Up";
-		$logo = "./img/Picture1.png";
-		navBar($pageTitle, $logo);
-
-		?>
-
 		<form action="./signupHandle.php" method="POST">
 			<label for="name">Name:</label>
 			<br>
