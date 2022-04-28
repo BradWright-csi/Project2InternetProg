@@ -30,7 +30,7 @@ session_start();
 
         require_once 'pageOption.php';
 
-        $pageTitle = "About";
+        $pageTitle = "Quote | Preston Custom Designs";
         $logo = "./img/Picture1.png";
         navBar($pageTitle, $logo);
 
