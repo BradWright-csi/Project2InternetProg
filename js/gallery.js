@@ -1,13 +1,16 @@
-function upDate(previewPic)
-{
- 
-   old=document.getElementById("image").innerHTML
-   document.getElementById("image").innerHTML=previewPic.alt
-   document.getElementById("image").style.background="url("+previewPic.src+")" ;
-}
+let counter = 2;
+document.getElementById("radio1").checked = true;
+let stopIt = 0;
+var myTime = setInterval(function () {
+  document.getElementById("radio" + counter).checked = true;
+  counter++;
+  if (counter > 5) {
+    counter = 1;
+  }
+}, 5000);
 
-function unDo()
-{
-   document.getElementById("image").innerHTML=old
-   document.getElementById("image").style.background="#8e68ff";    
+/* Stops auto navigating through slides */
+function stopAuto() {
+  clearInterval(myTime);
+  console.log("STOPED");
 }
