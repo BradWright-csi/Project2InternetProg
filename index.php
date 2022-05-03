@@ -51,7 +51,7 @@ session_start();
   $pageTitle = "About";
   $logo = "./img/Picture1.png";
   navBar($pageTitle, $logo);
-
+  
   ?>
 
   <hr class="style1">
@@ -62,13 +62,25 @@ session_start();
   </div>
   <div class="row">
     <div class="col-6">
-      <img src="./img/family.jpg" alt="Family" style="width:300px;height:400px;" class="offset-6 img-responsive">
+      <img src="./img/family.jpg" alt="Family" style="width:300px;height:400px;" class="offset-4 img-responsive">
     </div>
     <div class="col-5">
-      <p>Preston Custom Designes is a family buisness run by father and son.
+      <p class="offset-4">Preston Custom Designes is a family buisness run by father and son.
         We specialize in coustom wood and glass etching.</p>
     </div>
+    </div>
+    <div class="row">
+      <div class="col-10 offset-4">
+
+    <?php
+
+        require_once 'pageOption.php';
+
+        footer();
+  
+    ?>
   </div>
+    </div>
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->

@@ -96,18 +96,17 @@
    {
       echo <<<EOT
          
-            <footer style="position: absolute;
-            bottom: 0;
+            <footer style="position: bottom;
             width: 100%;
             height: 2.5rem;">
             <div class="row">
-               <div class="column" id="auth">
-                  <p>Authors: Group 5 CSCI3610</p>
+               
+                  <p>   Authors: Group 5 CSCI3610 </p>
                </div>
-               <div class="column">
-                  <p><a href="./adminLogin.php">Admin</a></p>
+               <div class="row">
+                  <p><a href="./adminLogin.php">   Admin Login</a></p>
                </div>
-               </div>
+               
             </footer>
          
       EOT;
@@ -123,3 +122,4 @@
 </body>
 
 </html>
+
