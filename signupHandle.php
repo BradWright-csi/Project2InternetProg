@@ -21,7 +21,7 @@ session_start();
 
     require_once 'pageOption.php';
 
-    $pageTitle = "Login";
+    $pageTitle = "Sign Up";
     $logo = "./img/Picture1.png";
 
 

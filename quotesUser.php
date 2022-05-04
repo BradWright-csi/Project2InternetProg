@@ -38,7 +38,7 @@ if (!isset($_SESSION["name"]))
 
     require_once 'pageOption.php';
 
-    $pageTitle = "About";
+    $pageTitle = "Quote";
     $logo = "./img/Picture1.png";
     navBar($pageTitle, $logo);
 

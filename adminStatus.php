@@ -4,8 +4,8 @@
 
 <?php
 session_start();
-if (!isset($_SESSION["admin"]))
-    die("You have to login as an admin to view this page");
+// if (!isset($_SESSION["admin"]))
+//     die("You have to login as an admin to view this page");
 
 ?>
 
@@ -59,6 +59,8 @@ if (!isset($_SESSION["admin"]))
         $desc = $row["description"];
         $status = $row["status"];
         $quantity = $row["quantity"];
+        $orderID = $row["orderID"];
+
 
         echo <<< EOT
             <div class="row mt-4">
@@ -69,18 +71,23 @@ if (!isset($_SESSION["admin"]))
                 <h3>Quantity: $quantity</h3>
             </div>
             <div class="col-sm-2">
-                <label for="worktype">Status: $status</label>
+                <label for="worktype">Current Status: $status</label>
             </div>
             <div class="col-sm-2">
-                <label for="worktype">Current Status: </label>
-                <select name="product" id="product" form="services">
-                    <option value=""></option>
-                    <option value="started">Started</option>
-                    <option value="finished">Finished</option>
-                </select>
+                
+                    <label for="worktype">Change Status: </label>
+                    <form id="update" action="./statusHandler.php" method="POST"> 
+                        <select id="status" name="status">
+                            <option value="active">active</option>
+                            <option value="completed">colmpleted</option>
+                            <option value="canceled">canceled</option>
+                        </select>
             </div>
-            <div class="col-sm-2">
-                <h3><a href="#">Update</a></h3>
+                <div class="col-sm-2">
+                     
+                        <input type="hidden" id="order" name="order" value= "$orderID">
+                        <input type="submit" value="Update">
+                    </form>
             </div>
             <div class="col-lg-auto">
                     <br><h3>$desc</h3>

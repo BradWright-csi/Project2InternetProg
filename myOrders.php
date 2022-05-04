@@ -33,7 +33,7 @@ if (!isset($_SESSION["name"]))
 
     require_once 'pageOption.php';
 
-    $pageTitle = "Quote Manager";
+    $pageTitle = "Orders";
     $logo = "./img/Picture1.png";
     navBar($pageTitle, $logo);
 
