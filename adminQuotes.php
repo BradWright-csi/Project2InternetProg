@@ -38,7 +38,7 @@ if (!isset($_SESSION["admin"]))
     require_once 'connection.php';
     $conn = connect_db();
 
-    $query = "SELECT * FROM orders";
+    $query = "SELECT * FROM quotes";
     $result = $conn->query($query);
     if (!$result)
         die("Query error!" . $query);
@@ -52,8 +52,9 @@ if (!isset($_SESSION["admin"]))
         $row = $result->fetch_array(MYSQLI_ASSOC);
         $type = $row["type"];
         $desc = $row["description"];
-        $status = $row["status"];
         $quantity = $row["quantity"];
+        $quoteID = $row["quoteID"];
+        $price = $row["price"];
 
         echo <<< EOT
             <div class="row mt-4">
@@ -64,11 +65,20 @@ if (!isset($_SESSION["admin"]))
                     <h3>Quantity: $quantity</h3>
                 </div>
                 <div class="col-sm-2">
-                    <label for="price" style="width: 50px;">$</label>
-                    <input type="text" id="price" name="price">
+                    <form id="update" action="./priceHandler.php" method="POST"> 
+                        <label for="price">Price:$$price</label>
+                        <input type="number" id="price" name="price">
                 </div>
-                <div class="col-md-4">
-                    <h3><a href="#">Submit</a></h3><br>
+                <div class="col-sm-2">
+                        <input type="hidden" id="quote" name="quote" value= "$quoteID">
+                        <input type="submit" value="Update">
+                    </form>
+                </div>
+                <div class="col-sm-2">
+                     <form action="./cancelAdminHandler.php" method="POST">
+                        <input type="hidden" id="cancel" name="cancel" value="$quoteID">
+                        <input type="submit" value="Cancel">
+                    </form>
                 </div>
                 <div class="col-lg-auto">
                     <h3>$desc</h3>

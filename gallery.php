@@ -7,7 +7,7 @@ session_start();
 
 <head>
 	<meta charset="UTF-8">
-	<title>Photo Gallery | Preston Custom Designes</title>
+	<title>Photo Gallery | Preston Custom Designs</title>
 	<link rel="stylesheet" href="./css/gallery.css">
 	<link rel="icon" type="image/png" href="./img/weblogo.png">
 </head>

@@ -78,8 +78,8 @@ if (!isset($_SESSION["admin"]))
                     <label for="worktype">Change Status: </label>
                     <form id="update" action="./statusHandler.php" method="POST"> 
                         <select id="status" name="status">
-                            <option value="active">active</option>
-                            <option value="completed">colmpleted</option>
+                            <option value="started">active</option>
+                            <option value="finished">colmpleted</option>
                             <option value="canceled">canceled</option>
                         </select>
             </div>

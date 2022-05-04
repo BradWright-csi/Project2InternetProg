@@ -17,7 +17,7 @@ if (!isset($_SESSION["name"]))
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="./img/weblogo.png">
-    <title>My Orders | Preston Custom Designes</title>
+    <title>My Orders | Preston Custom Designs</title>
 
     <style type="text/css">
         hr.style1 {

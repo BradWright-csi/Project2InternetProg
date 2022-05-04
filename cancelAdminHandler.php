@@ -1,9 +1,12 @@
 <!-- 
-    If user is signed in, they can see/fill out quote form
+  
 -->
 
 <?php
 session_start();
+if (!isset($_SESSION["name"]))
+    die("You have to login to view this page");
+
 ?>
 
 <!DOCTYPE html>
@@ -14,52 +17,41 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="./img/weblogo.png">
-    <title>Quote Complete | Preston Custom Designes</title>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Quotes Handler | Preston Custom Designs</title>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+    <style type="text/css">
+        hr.style1 {
+            background-color: green;
+            color: seagreen;
+        }
+    </style>
 </head>
 
 <body>
-
-
     <?php
-
     require_once 'pageOption.php';
 
-    $pageTitle = "Quote";
+    $pageTitle = "About";
     $logo = "./img/Picture1.png";
     navBar($pageTitle, $logo);
 
     require_once 'connection.php';
     $conn = connect_db();
 
-    $type = $_POST["product"];
-    $desc = $_POST["desc"];
-    $quantity = $_POST["quant"];
-    $email = $_SESSION['name'];
+    $qid = $_POST['cancel'];
 
-    $custID = $conn->query("SELECT userID FROM users WHERE email = \"$email\"");
-    $row = $custID->fetch_array(MYSQLI_ASSOC);
+    $removequoteQuery = "DELETE FROM quotes WHERE quoteID = \"$qid\"";
 
-    $custID = $row["userID"];
-
-    $query = "INSERT INTO `quotes` (`quoteID`, `type`, `description`, `customerID`, `quantity`) VALUES (NULL, '$type', '$desc', '$custID', '$quantity');";
-    $result = $conn->query($query);
-
+    $result = $conn->query($removequoteQuery);
     if (!$result) {
-        die("Query Error on quote submission!");
+        die("Query Error on quote cancelation!");
     }
-    echo "<div class=container>";
-    echo "<h2>Quote has been submitted!</h2>";
-    echo "</div>"
+
+    echo "<h2>Your quote has been canceled.</h2>";
+    echo "<h3><a href=\"./myQuotes.php\">Return to Quotes</a></h3>";
+    header('Location: ./adminQuotes.php');
+    $conn->close();
     ?>
-
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
