@@ -4,8 +4,8 @@
 
 <?php
 session_start();
-// if (!isset($_SESSION["admin"]))
-//     die("You have to login as an admin to view this page");
+if (!isset($_SESSION["admin"]))
+    die("You have to login as an admin to view this page");
 
 ?>
 
