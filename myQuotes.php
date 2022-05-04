@@ -63,6 +63,8 @@ if (!isset($_SESSION["name"]))
         $price = $row["price"];
         $desc = $row["description"];
         $quantity = $row["quantity"];
+        $quoteID = $row["quoteID"];
+        
 
         echo <<< EOT
             <div class="row mt-4">
@@ -76,10 +78,16 @@ if (!isset($_SESSION["name"]))
                     <h3>Price: $$price</h3>
                 </div>
                 <div class="col-sm-2">
-                    <h3><a href="#">Buy</a></h3>
+                    <form action="./buyHandler.php" method="POST">
+                        <input type="hidden" id="buy" name="buy" value="$quoteID">
+                        <input type="submit" value="Buy">
+                    </form>
                 </div>
                 <div class="col-sm-2">
-                    <h3><a href="#">Cancel</a></h3>
+                     <form action="./cancelHandler.php" method="POST">
+                        <input type="hidden" id="cancel" name="cancel" value="$quoteID">
+                        <input type="submit" value="Cancel">
+                    </form>
                 </div>
                 <div class="col-lg-auto">
                     <br><h3>$desc</h3>
@@ -92,6 +100,8 @@ if (!isset($_SESSION["name"]))
     }
     echo ("</div>");
     $conn->close();
+
+    
     ?>
 
 
